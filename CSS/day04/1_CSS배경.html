@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!--
+        color
+        image
+        size (cover, contain)
+            cover
+            페이제에 가득차게, 가득 찬 배경
+            이미지가 잘릴 수 있음
+
+            contain
+            원본 비율에 맞게 늘림, 사진 전체가 보임
+            여백이 생길 수 있음
+
+            300px 200px
+            비율에 맞지 않게 늘어나 사진이 깨질 수 있음
+
+            => 이미지 리사이즈 요청
+            => 여백이 생길 수 있음 고지
+    -->
+        <style>
+            #circle {
+                background-color: aquamarine;
+                width: 48px;
+                /* px 단위는 4px 단위로 올려주세요 */
+                height: 48px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                /* start, center */
+                padding-bottom: 4px;
+            }
+
+            #circle > img {
+                width: 16px;
+                height: 16px;
+                aspect-ratio: 1/1;
+                /*  요소의 종행비 4:3, 3:4, 16:9 */
+            }
+
+            body {
+                background-color: rgba(0, 0, 0, 0.6);
+                background-image: url("pexels-tom-lok-6476882.jpg");
+                /* background-size: cover; */
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 300vh;
+                background-attachment: fixed;
+                margin: 0px;
+            }
+
+            .modal-background {
+                background-color: rgba(0, 0, 0, 0.6);
+                height: 100vh;
+                position: fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="modal-background"></div>
+        <div id="circle">
+            <img
+                src="../../html/day02/assets/img/PAP20230228144701009_P2.jpg"
+            />
+        </div>
+    </body>
+</html>

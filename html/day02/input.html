@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<!>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- sign-up container start -->
+    <!-- p tag 안에 div tag 넣어서는 안된다 -->
+    <div id="login-container">
+        <!-- 속성명=속성값 -->
+        이메일:<input type="text" placeholder="이메일을 입력해주세요" />
+        <!-- input : 입력을 나타내는 요소, 입력의 종류가 굉장히 포괄적
+                     보통은 .form 요소와 함께 쓰이지만, 다음 주에 진행 예정
+
+                     type에 따라 다양한 입력 요소를 구현할 수 있음
+                     가장 많이 사용하는 것은 text이며 default value(기본 값)
+
+                     내용물이 필요없는 단일 태그
+        -->
+        <br /> <!--줄바꿈-->
+        비밀번호:<input type="password" />
+        <div>
+            좋아하는 색상: <input type="color">
+        </div>
+        <input type="button" value="회원가입" />
+        <button>회원가입</button>
+        <!-- hobby start -->
+        <div>
+            취미:
+            <select>
+                <option value="0">코딩</option>
+                <option value="1">자전거</option>
+                <option value="2">풋살</option>
+            </select>
+        </div>
+        <!-- hobby end -->
+        <!-- gender -->
+        <div>
+            성별:
+            <input type="radio" name="gender" value="0" id="female" />
+            <label for="female">여성</label>
+            <!-- label은 for 속성 값과 같은 id 값을 가진 요소를 연결할 수 있음-->           
+            <input type="radio" name="gender" value="1" /> 남성
+            <input type="radio" name="gender" value="2" /> 비공개
+            <!-- radio는 같은 name을 가진 그룹 중에서 하나만을 선택 -->
+        </div>
+        <!-- family-->
+        <div>
+            가족관계
+            <input type="checkbox" /> 본인
+            <input type="checkbox" /> 부모
+            <input type="checkbox" /> 형제
+            <input type="checkbox" /> 자매
+            <!-- checkbox는 다중 성택, JavaScript를 이용하여 갯수 제한-->
+        </div>
+    </div>
+    <!-- sign-up container end -->
+</body>
+</html>

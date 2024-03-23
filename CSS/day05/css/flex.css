@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 60px;
+  background-color: rgb(255, 89, 89);
+}
+
+#main-banner-wrapper {
+  height: 360px;
+  background-color: rgb(255, 255, 84);
+}
+
+#main-banner-container {
+  width: 1080px;
+  height: 100%;
+  background-color: rgb(105, 255, 105);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: nowrap;
+  /* overflow: hidden; */
+  /* flexible layout을 쓰지 않고도 중앙 정렬 */
+}
+
+#main-banner-container > article:first-of-type {
+  background-color: bisque;
+  /* flex-basis: 100px; */
+  /* 안에 있는 내용 물의 크기 */
+  /* 안에 있는 요소를 모두 합쳐도 부모를 넘을 수 없음 */
+  /* flex-grow: 1; */
+  flex-basis: 1080px;
+  /* flex-shrink: 0; */
+  /* 
+  축소율을 이야기 보통은 auto로 설정되어 각 요소가 축소되어
+  부모 요소의 크기에 맞게 레이아웃이 배정이 됨
+  반대로 0을 넘어가면 grow로 마찬가지로
+  자식 요소들의 부모 요소의 비해 축소비율이 됨
+  */
+  flex-shrink: 2;
+}
+
+#main-banner-container > article:nth-of-type(2) {
+  background-color: rgb(255, 174, 116);
+  /* flex-basis: 200px; */
+  /* flex-grow: 4; */
+  /* 
+  grow 속성 값이 0일 때만 basis의 속성 값이 적용되고 유지됨
+  grow 속성 값이 1이상인 경우, basis에 적용한 값보다 커질 수가 있음
+  (더해짐)
+  width와 basis 속성 값을 동시에 적용하는 경우 basis 속성 값이 우선적으로 적용됨
+  */
+  flex-basis: 1080px;
+  /* flex-shrink: 0; */
+  flex-shrink: 2;
+  /* shrink 값을 잘 기억하고 계산해야함 */
+}
+
+#main-banner-container > article:nth-of-type(3) {
+  background-color: rgb(178, 255, 229);
+  /* flex-basis: 300px; */
+  /* flex-grow: 1; */
+  flex-basis: 1080px;
+  /* flex-shrink: 0; */
+  flex-shrink: 1;
+}
+
+#main-banner-container > article:last-of-type {
+  background-color: rgb(255, 44, 44);
+  /* flex-grow: 1; */
+  flex-basis: 1080px;
+  /* flex-shrink: 0; */
+  flex-shrink: 2;
+}
+
+main {
+  display: flex;
+}
+
+main > aside {
+  flex-basis: 320px;
+  flex-shrink: 0;
+  background-color: rgb(36, 133, 21);
+}
+
+main > section {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: rgb(255, 165, 81);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+main > section > article {
+  flex-basis: 33.33%;
+  flex-basis: 330px;
+  /* 부모 요소 크기에 따라 비율 및 크기 변경 */
+  /* 고정을 시키고 배율을 바꿀 수도 있음 */
+  height: 220px;
+  background-color: rgb(118, 118, 255);
+}
+
+footer {
+  height: 180px;
+  background-color: #eee;
+}

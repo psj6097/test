@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            @font-face {
+                font-family: Noto;
+                src: url(./font/NotoSansKR-VariableFont_wght.ttf);
+            }
+
+            /*
+                ttf -> IE9버전부터 부분적 지원, 용량이 큽니다 (압축 x)
+                eot -> IE만 지원하는 폰트
+                otf -> 운영체제에 직접 다운로드 폴더, 용량이 큽니다
+                woff -> 가장 용량이 작고 빠름, 옛 버전의브라우저 지원이 되지 않습니다
+
+                ==> 이것을 모두 기억하라는 것은 아닙니다
+                ==> 만약에 프로젝트의 특성 상 구버전 브라우저를 지원해야한다면
+                ==> 당시 폰트가 적용이 안되는 이슈가 있다면 확장자가 지원하고 있는지 고려
+            */
+
+            body {
+                font-family: Noto;
+            }
+
+            /* p요소 중에 class가 align인 요소 선택 */
+
+            p.align {
+                text-align: justify;
+            }
+
+            p.font {
+                font-size: 32px;
+                font-weight: bold;
+                /* bold = 700*/
+                font-family: "Noto Sans KR", sans-serif;
+                /*
+                    cdn: <link/>로 외부 파일을 연결
+                    용량도 작고 속도도 빠릅니다, 단 서버의 연결 상태에 따라 의존적
+                        1. cdn 형태를 쓰면 빠른 속도의 페이지 로딩이 가능
+                        (font를 파일로 전송하지 않기 때문에 용량이 작죠)
+                        
+                        2.중복 다운로드 방지
+                        
+                        3. 브라우저에 저장이 됩니다. 기존 사용자의 경우 재요청 -- x
+
+                    @font-face: down load
+                    폰트 파일의 형식을 서버에서 직접 저장할 수 있기 때문에
+                    어떠한 브라우저에서도 지원 가능
+
+                    보통은 cdn을 사용하는 것이 좋습니다.
+                    cdn에서 받는 파일이 용량이 클 경우, 서버가 불안정할 경우 늘리 수가 있음
+                    
+                    @font-face -- 폰트의 종류가 많을 때, 폰트의 크기가 클 때, 회사 폰트를 사용할 때
+                    다양한 브라우저의 버전의 호환성을 지켜야할 때
+
+
+                    // font-display라는 속성과 연관
+                        font-display: swap (fout)
+                        기본값, 대체 폰트 -> 폰트
+
+                        font-display: block (foit)
+                        보여주지 않았다가, 폰트 다운로드가 완료되면 -> 폰트
+
+                        foit
+                        웹 폰트를 불러오는 과정에서
+                        폰트를 불러오는 웹 브라우저가 텍스트를 보여주지 않는 현상
+                        // 텍스트의 노출이 중요하지 않을 때
+
+                        fout
+                        반대로 웹 폰트를 불러오는 과정에서
+                        폰트를 불러오는 동안 대체 폰트를 불러오는 현상
+                        // 텍스트를 사용자가 빨리 보는 것이 중요할 때
+
+                */
+            }
+
+            #overflow {
+                width: 300px;
+                height: 100px;
+                overflow: hidden;
+                /* <-> visible (default value) */
+                text-overflow: ellipsis;
+                /* <-> clip (default value)*/
+                /*... 반드시 overflow 히든이어야하고, white-space가 nowrap 이어야합니다. */
+                white-space: nowrap;
+            }
+
+            /*
+                과제는 Mdn의 CSS를 읽어오는 것
+                https://developer.mozilla.org/ko/docs/Web/CSS
+                다음주까지
+                배우고 읽는거
+                
+                ---------
+                fonts
+                colors
+                backgrounds and borders
+                box model
+                images
+                display
+                ---------
+                positioned layout
+                *grid layout
+                *flexible box layout
+
+            
+             */
+        </style>
+    </head>
+    <body>
+        <p class="align">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
+            excepturi deserunt voluptates dolorum corrupti enim soluta provident
+            dolores earum commodi nulla expedita quisquam consequuntur eius quos
+            pariatur optio, accusamus quidem.
+        </p>
+        <hr />
+        <!--
+            p와 div는 처음부터 끝까지 가로 길이를 차지
+            높이는? 안에 있는 내용물 만큼 길어집니다.
+            따라서 p태그를 넘는 텍스트가 있을 수가 없습니다.
+
+            근데 만약에 P태그에 크기를 준다면?
+            글자가 p태그 넘어서 표기됩니다.
+        -->
+        <p class="font">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima enim
+            voluptatum odio, necessitatibus facere consequatur dignissimos eum
+            beatae aliquam doloremque id maxime temporibus rem aliquid non
+            voluptate odit porro quibusdam.
+        </p>
+        <hr />
+        <p id="overflow">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit, dolores eum. Sunt quo facere repellat impedit
+            perferendis corrupti doloremque aliquam officiis ipsa, quos
+            aspernatur corporis soluta voluptas minus dolorum omnis!
+        </p>
+    </body>
+</html>

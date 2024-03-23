@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- 
+            디스 플레이
+            
+            block
+                - 한 줄을 모두 차지하고 있는 속성
+                - 크기를 지정할 수 있음
+                (p, div, h1~h6 ... )
+
+            inline
+                - 안에 있는 요소만큼 크기가 지정되며, 한 줄을 모두 차지 않아
+                  이어지는 요소가 이웃하지 배치
+
+                - 크기를 지정할 수 없음
+                (a, span, input ... )
+
+            inline-block
+                - block, inline의 속성을 모두 갖고 있는 display 속성
+                - inline 처럼 나란히 배치되면서, 크기를 조정할 수 있음
+                - 블록 요소의 세로 정렬을 위해서 사용되는 경우도 많음
+            
+            none
+                - 안 보여주는 거, 화면에서 사라짐
+                - script를 통해 화면에서 다시 노출시킬 수 있음
+
+            ++@ flex, grid (--다음주--)
+         -->
+        <style>
+            span {
+                width: 48px;
+                height: 48px;
+                background-color: aqua;
+                display: inline-block;
+                /* 크기 조절 가능 */
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            ul > li {
+                display: inline-block;
+                /* 수평 정렬 가능, 크기 조절 가능 */
+            }
+
+            div {
+                width: 500px;
+                height: 300px;
+                border: 1px solid #000;
+                margin: 16px;
+            }
+
+            /* 아예 자리를 차지 않고 사라짐 */
+            .none > p {
+                display: none;
+            }
+
+            .none:hover > p {
+                display: block;
+            }
+
+            /* 자리는 차지하지만, 화면에 보이지 않는 상태 */
+            .hidden > p {
+                visibility: hidden;
+            }
+
+            .hidden:hover > p {
+                visibility: visible;
+            }
+
+            /* 
+            hidden 화면에서 완전히 사라진 상태, 자리만 차지하고 있기 때문에
+            클릭이나 기능을 하지 않습니다.
+            
+            반면에 opacity는 숨겨진 상태가 아니라 단순히 투명해진 상태이기 때문에
+            클릭이나 기능을 사용할 수 없습니다.
+            */
+            .opacity > p {
+                opacity: 0;
+            }
+
+            .opacity:hover > p {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <span>안</span>
+        <span>녕</span>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <!-- li*3 -->
+        </ul>
+
+        <hr />
+
+        <div class="none">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p>
+                Culpa aut iste eius provident vel corporis illo, illum
+                recusandae enim dicta voluptate maiores et, voluptates harum
+                alias.
+            </p>
+            Iure veniam iusto doloremque.
+        </div>
+        <div class="hidden">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            <p>Voluptatem aut magnam eos, doloribus optio non facilis?</p>
+            esse possimus explicabo ex laborum, nobis velit eius, aliquid ipsum
+            laudantium reprehenderit adipisci?
+        </div>
+        <div class="opacity">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p>
+                A sit maiores atque voluptatum et des erunt eos, dolorum ex
+                libero ullam, quis autem enim reiciendis.
+            </p>
+            Minima, similique ad. In, adipisci sed.
+        </div>
+    </body>
+</html>

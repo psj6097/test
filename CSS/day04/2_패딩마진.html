@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- css link는 위에서 아래로 읽기 때문에 먼저 적용해야하는 것이 상단 -->
+        <!-- 공유할 수 있는 >> 이 파일에만 써야하는 것 -->
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/common.css" />
+        <link rel="stylesheet" href="./css/padding.css" />
+        <!--
+            박스 모델
+            박스 모델은 삼각형!? 사각형!?
+
+            패딩, 마진(padding ,margin)
+
+                패딩: 안쪽 여백 (내용물(content) 위치)
+                마진: 바깥 여백 (다른 요쇼와의 간격)
+
+                * 음수 마진과 패딩은 주지 않도록합시다!
+            
+            테두리 (border)
+            
+            요소의 크기를 계산하는 방법
+            
+            content-box (default value)
+                div-> width: 300
+                300 + 안쪽 여백 + 테두리 두께 -> 300이상
+            
+            border-box
+                테두리를 기준으로 하기 때문에 여백과 테두리를 포함한 크기
+                div -> width: 300
+            
+            * {
+                box-sizing: border-box
+            }
+        -->
+    </head>
+    <body>
+        <p id="padding-1">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem, laudantium possimus non officia at dolore labore
+            tempore ipsa perferendis fuga ex mollitia dicta necessitatibus id,
+            consequatur corrupti sequi, repellendus numquam.
+        </p>
+        <p id="margin-1">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt sint
+            voluptates ad ea nostrum numquam tenetur ipsa, qui culpa eius
+            ducimus aperiam alias porro consectetur ut illum officiis temporibus
+            enim?
+        </p>
+        <p id="margin-2">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
+            voluptates numquam sapiente, delectus laboriosam optio eum, nemo
+            ratione exercitationem quia nihil sint eaque ea doloribus veniam
+            atque, amet id architecto.
+        </p>
+        <hr />
+        <h2>box sizing</h2>
+        <div class="content-box"></div>
+        <div class="border-box"></div>
+    </body>
+</html>
